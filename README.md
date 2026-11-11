@@ -1,21 +1,35 @@
-# GhostSpot
+# 👻 GhostSpot
 
 <p align="center">
-  <img src="docs/logo.svg" alt="GhostSpot Logo" width="160" height="160">
+  <img src="docs/logo.svg" alt="GhostSpot Logo" width="180" height="180">
 </p>
+
+<h2 align="center"><b>Spotify &amp; YouTube Music Without Ads</b></h2>
 
 <p align="center">
   <a href="https://github.com/Rohit-0226/Ghost-Spot/releases/download/v2.4.0/GhostSpot.apk">
-    <img src="https://img.shields.io/badge/DOWNLOAD_GHOSTSPOT_APK-v2.4.0-1ED760?style=for-the-badge&amp;logo=android&amp;logoColor=white" height="52">
+    <img src="https://img.shields.io/badge/⬇️_DOWNLOAD_GHOSTSPOT_APK-v2.4.0_(DIRECT)-1DB954?style=for-the-badge&amp;logo=android&amp;logoColor=white" height="60">
   </a>
 </p>
 
-### 📲 [👉 Click Here to Download GhostSpot APK (1-Click Direct Download)](https://github.com/Rohit-0226/Ghost-Spot/releases/download/v2.4.0/GhostSpot.apk)
-*(Also available under [GitHub Actions Artifacts](https://github.com/Rohit-0226/Ghost-Spot/actions))*
+<p align="center">
+  <a href="https://github.com/Rohit-0226/Ghost-Spot/releases/tag/v2.4.0">
+    <img src="https://img.shields.io/badge/📦_VIEW_RELEASES-v2.4.0-black?style=for-the-badge&amp;logo=github&amp;logoColor=white" height="38">
+  </a>
+</p>
 
-> ### 📱 Mobile Installation Guide (Pehle Yahan Se Install Karo):
-> - **Separate Independent App**: Package name is `app.ghostspot`. It installs separately from MySpoti or Spotify.
-> - **Download**: Tap **[Releases](https://github.com/Rohit-0226/Ghost-Spot/releases)**, download `GhostSpot-v2.4.0.apk`, and tap **Install**!
+<div align="center">
+
+### 📲 **[👉 Direct 1-Tap Download: GhostSpot.apk](https://github.com/Rohit-0226/Ghost-Spot/releases/download/v2.4.0/GhostSpot.apk)**
+*(Alternative Direct Mirror: [GhostSpot-v2.4.0.apk](https://github.com/Rohit-0226/Ghost-Spot/releases/download/v2.4.0/GhostSpot-v2.4.0.apk))*
+
+</div>
+
+> ### 📱 Mobile Quick Install (Mobile Se Download Aur Install Karne Ka Tarika):
+> 1. **Upar diye gaye Green Download Button par tap karein** ya direct link se APK open karein.
+> 2. Chrome/Browser *"File might be harmful"* ka prompt dikhata hai (sideloaded APK ke liye standard security prompt) -> Tap **"Download anyway"**.
+> 3. Download complete hone par tap karein aur **Install** karein!
+> 4. **100% Separate App**: Package name `app.ghostspot` hai. Yeh aapke mobile me separate Ghost icon ke sath install hoga aur kisi dusre app ko overwrite nahi karega.
 
 ---
 [![License: GPL-3.0](https://img.shields.io/github/license/kota-zo/myspoti)](LICENSE)
@@ -46,7 +60,7 @@ Access the complete Spotify catalog (including full podcast library, shows, and 
 </p>
 
 <p align="center">
-  <a href="https://github.com/kota-zo/myspoti/releases/latest"><b>⬇ Download the latest APK</b></a>
+  <a href="https://github.com/Rohit-0226/Ghost-Spot/releases/download/v2.4.0/GhostSpot.apk"><b>⬇ Download the latest APK</b></a>
 </p>
 
 <p align="center"><sub>The Immersive look and many ideas come from <a href="https://github.com/kushagrasinghx/BitChord">BitChord</a>: see <a href="#bitchord">Credits</a>.</sub></p>
@@ -75,7 +89,7 @@ Under the hood, the official Spotify Web Player plays the music, hidden inside t
 
 ## Get started
 
-1. Download the APK from the [latest release](https://github.com/kota-zo/myspoti/releases/latest) and open it (Android 10 or later). Android asks once to allow installs from your browser or file manager.
+1. Download the APK from the [latest release](https://github.com/Rohit-0226/Ghost-Spot/releases/download/v2.4.0/GhostSpot.apk) and open it (Android 10 or later). Android asks once to allow installs from your browser or file manager.
 2. Tap **Log in with Spotify** and sign in.
 3. Pick the sound quality, allow what you want (notifications, Bluetooth, local files…), and you are in.
 
