@@ -5,12 +5,12 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Rohit-0226/Ghost-Spot/releases">
+  <a href="https://github.com/Rohit-0226/Ghost-Spot/releases/download/v2.4.0/GhostSpot.apk">
     <img src="https://img.shields.io/badge/DOWNLOAD_GHOSTSPOT_APK-v2.4.0-1ED760?style=for-the-badge&amp;logo=android&amp;logoColor=white" height="52">
   </a>
 </p>
 
-### 📲 [👉 Click Here to Download GhostSpot APK from Releases](https://github.com/Rohit-0226/Ghost-Spot/releases)
+### 📲 [👉 Click Here to Download GhostSpot APK (1-Click Direct Download)](https://github.com/Rohit-0226/Ghost-Spot/releases/download/v2.4.0/GhostSpot.apk)
 *(Also available under [GitHub Actions Artifacts](https://github.com/Rohit-0226/Ghost-Spot/actions))*
 
 > ### 📱 Mobile Installation Guide (Pehle Yahan Se Install Karo):
