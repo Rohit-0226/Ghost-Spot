@@ -1,23 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- GhostSpot monochrome launcher icon. -->
+<!-- GhostSpot monochrome launcher foreground. -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
     <path
-        android:fillColor="#FFFFFFFF"
-        android:pathData="M36,52 C36,38 72,38 72,52 L72,70 C70,74 67,71 64,74 C61,77 58,71 54,74 C50,77 47,71 44,74 C41,77 38,71 36,70 Z" />
-    <path
-        android:fillColor="#000000"
-        android:pathData="M47,50m-3.5,0a3.5,3.5 0,1,1 7,0a3.5,3.5 0,1,1 -7,0 M61,50m-3.5,0a3.5,3.5 0,1,1 7,0a3.5,3.5 0,1,1 -7,0" />
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#000000"
+        android:strokeWidth="1.8"
+        android:strokeLineJoin="round"
+        android:pathData="M44,38 C44,28 64,28 64,38 C64,41 66,44 71,44 C76,44 78,47 78,50 C78,53 74,54 70,52 C67,51 66,54 66,58 C66,64 69,67 73,71 C71,75 66,75 64,72 C62,75 57,75 55,72 C53,75 48,75 46,72 C44,75 39,75 37,71 C41,67 44,64 44,58 C44,54 43,51 40,52 C36,54 32,53 32,50 C32,47 34,44 39,44 C44,44 44,41 44,38 Z" />
     <path
         android:fillColor="#00000000"
-        android:strokeColor="#FFFFFFFF"
-        android:strokeWidth="3.8"
+        android:strokeColor="#000000"
+        android:strokeWidth="3.6"
         android:strokeLineCap="round"
-        android:pathData="M31,54 C31,30 77,30 77,54" />
+        android:pathData="M40,39 C40,23 68,23 68,39" />
     <path
-        android:fillColor="#FFFFFFFF"
-        android:pathData="M29,48 a3.5,5 0 0,1 4,0 l0,10 a3.5,5 0 0,1 -4,0 z M75,48 a3.5,5 0 0,1 4,0 l0,10 a3.5,5 0 0,1 -4,0 z" />
+        android:fillColor="#000000"
+        android:pathData="M37,34 C39,34 40,36 40,39 L40,43 C40,46 39,48 37,48 C35,48 34,46 34,43 L34,39 C34,36 35,34 37,34 Z" />
+    <path
+        android:fillColor="#000000"
+        android:pathData="M71,34 C73,34 74,36 74,39 L74,43 C74,46 73,48 71,48 C69,48 68,46 68,43 L68,39 C68,36 69,34 71,34 Z" />
 </vector>

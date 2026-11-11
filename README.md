@@ -1,5 +1,9 @@
 # GhostSpot
 
+<p align="center">
+  <img src="docs/logo.svg" alt="GhostSpot Logo" width="160" height="160">
+</p>
+
 [![Latest release](https://img.shields.io/github/v/release/kota-zo/myspoti?label=release)](https://github.com/kota-zo/myspoti/releases/latest)
 [![License: GPL-3.0](https://img.shields.io/github/license/kota-zo/myspoti)](LICENSE)
 [![Discord](https://img.shields.io/badge/Discord-join-5865F2?logo=discord&logoColor=white)](https://discord.gg/jXKnGVFnGS)

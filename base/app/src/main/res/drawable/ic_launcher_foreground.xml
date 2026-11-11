@@ -1,27 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- GhostSpot launcher icon: Ghost with audio headphones in Spotify Green. -->
+<!-- GhostSpot launcher foreground: Snapchat-style iconic white ghost with audio headphones. -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <!-- Ghost Body -->
+    
+    <!-- Ghost Drop Shadow for depth on Spotify green background -->
     <path
-        android:fillColor="#1ED760"
-        android:pathData="M36,52 C36,38 72,38 72,52 L72,70 C70,74 67,71 64,74 C61,77 58,71 54,74 C50,77 47,71 44,74 C41,77 38,71 36,70 Z" />
-    <!-- Glowing Eye spots -->
+        android:fillColor="#15000000"
+        android:pathData="M44,40 C44,30 64,30 64,40 C64,43 66,46 71,46 C76,46 78,49 78,52 C78,55 74,56 70,54 C67,53 66,56 66,60 C66,66 69,69 73,73 C71,77 66,77 64,74 C62,77 57,77 55,74 C53,77 48,77 46,74 C44,77 39,77 37,73 C41,69 44,66 44,60 C44,56 43,53 40,54 C36,56 32,55 32,52 C32,49 34,46 39,46 C44,46 44,43 44,40 Z" />
+
+    <!-- Snapchat-style Ghost Body (Solid White) -->
     <path
-        android:fillColor="#121212"
-        android:pathData="M47,50m-3.5,0a3.5,3.5 0,1,1 7,0a3.5,3.5 0,1,1 -7,0 M61,50m-3.5,0a3.5,3.5 0,1,1 7,0a3.5,3.5 0,1,1 -7,0" />
-    <!-- Headphone Arch -->
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#121212"
+        android:strokeWidth="1.8"
+        android:strokeLineJoin="round"
+        android:pathData="M44,38 C44,28 64,28 64,38 C64,41 66,44 71,44 C76,44 78,47 78,50 C78,53 74,54 70,52 C67,51 66,54 66,58 C66,64 69,67 73,71 C71,75 66,75 64,72 C62,75 57,75 55,72 C53,75 48,75 46,72 C44,75 39,75 37,71 C41,67 44,64 44,58 C44,54 43,51 40,52 C36,54 32,53 32,50 C32,47 34,44 39,44 C44,44 44,41 44,38 Z" />
+
+    <!-- Headphone Arch (Spotify Deep Charcoal #121212) -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#121212"
+        android:strokeWidth="3.6"
+        android:strokeLineCap="round"
+        android:pathData="M40,39 C40,23 68,23 68,39" />
+
+    <!-- Headphone Inner Accent (Gleam) -->
     <path
         android:fillColor="#00000000"
         android:strokeColor="#FFFFFF"
-        android:strokeWidth="3.8"
+        android:strokeWidth="1.2"
         android:strokeLineCap="round"
-        android:pathData="M31,54 C31,30 77,30 77,54" />
-    <!-- Ear Pads -->
+        android:pathData="M46,27 C49,24 59,24 62,27" />
+
+    <!-- Left Ear Cup (Charcoal with Green Accent) -->
     <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M29,48 a3.5,5 0 0,1 4,0 l0,10 a3.5,5 0 0,1 -4,0 z M75,48 a3.5,5 0 0,1 4,0 l0,10 a3.5,5 0 0,1 -4,0 z" />
+        android:fillColor="#121212"
+        android:pathData="M37,34 C39,34 40,36 40,39 L40,43 C40,46 39,48 37,48 C35,48 34,46 34,43 L34,39 C34,36 35,34 37,34 Z" />
+    <path
+        android:fillColor="#1ED760"
+        android:pathData="M35,38 L35,44 C35.5,44.5 36.5,44.5 37,44 L37,38 Z" />
+
+    <!-- Right Ear Cup (Charcoal with Green Accent) -->
+    <path
+        android:fillColor="#121212"
+        android:pathData="M71,34 C73,34 74,36 74,39 L74,43 C74,46 73,48 71,48 C69,48 68,46 68,43 L68,39 C68,36 69,34 71,34 Z" />
+    <path
+        android:fillColor="#1ED760"
+        android:pathData="M71,38 L71,44 C71.5,44.5 72.5,44.5 73,44 L73,38 Z" />
 </vector>

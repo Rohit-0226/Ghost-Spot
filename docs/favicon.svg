@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1ED760" />
+      <stop offset="100%" stop-color="#1DB954" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#000000" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <!-- Squircle Background (Spotify Vibrant Green) -->
+  <rect width="512" height="512" rx="115" fill="url(#bgGrad)" />
+
+  <!-- Ghost Shadow -->
+  <g transform="translate(0, 10)" opacity="0.15">
+    <path d="M210,180 C210,130 302,130 302,180 C302,195 312,210 335,210 C358,210 368,225 368,240 C368,255 350,260 330,250 C316,245 312,260 312,280 C312,310 326,325 345,345 C335,365 311,365 302,350 C293,365 269,365 260,350 C251,365 227,365 218,350 C209,365 185,365 175,345 C194,325 208,310 208,280 C208,260 204,245 190,250 C170,260 152,255 152,240 C152,225 162,210 185,210 C208,210 210,195 210,180 Z" fill="#000000" />
+  </g>
+
+  <!-- Snapchat-Style Ghost Body (Crisp Solid White with Dark Outline) -->
+  <path d="M210,180 C210,130 302,130 302,180 C302,195 312,210 335,210 C358,210 368,225 368,240 C368,255 350,260 330,250 C316,245 312,260 312,280 C312,310 326,325 345,345 C335,365 311,365 302,350 C293,365 269,365 260,350 C251,365 227,365 218,350 C209,365 185,365 175,345 C194,325 208,310 208,280 C208,260 204,245 190,250 C170,260 152,255 152,240 C152,225 162,210 185,210 C208,210 210,195 210,180 Z"
+        fill="#FFFFFF"
+        stroke="#121212"
+        stroke-width="9"
+        stroke-linejoin="round"
+        filter="url(#shadow)" />
+
+  <!-- DJ Headphones Arch (Spotify Charcoal #121212) -->
+  <path d="M192,185 C192,110 320,110 320,185"
+        fill="none"
+        stroke="#121212"
+        stroke-width="17"
+        stroke-linecap="round" />
+
+  <!-- Headphone Gleam -->
+  <path d="M220,128 C234,116 278,116 292,128"
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-width="6"
+        stroke-linecap="round"
+        opacity="0.8" />
+
+  <!-- Left Ear Cushion -->
+  <rect x="165" y="160" width="36" height="58" rx="18" fill="#121212" />
+  <rect x="172" y="174" width="8" height="30" rx="4" fill="#1ED760" />
+
+  <!-- Right Ear Cushion -->
+  <rect x="311" y="160" width="36" height="58" rx="18" fill="#121212" />
+  <rect x="332" y="174" width="8" height="30" rx="4" fill="#1ED760" />
+</svg>
