@@ -7,7 +7,7 @@
     <string name="welcome_rotate_clips">with the official videos.</string>
     <string name="welcome_rotate_offline">offline, through extensions.</string>
     <string name="welcome_login">Log in with Spotify</string>
-    <string name="welcome_privacy">You sign in on Spotify\'s own page. Myspoti never sees your password.</string>
+    <string name="welcome_privacy">You sign in on Spotify\'s own page. GhostSpot never sees your password.</string>
     <string name="remove_from_liked">Remove from Liked Songs</string>
     <string name="repeat_on">Repeat: on</string>
     <string name="repeat_one">Repeat one</string>

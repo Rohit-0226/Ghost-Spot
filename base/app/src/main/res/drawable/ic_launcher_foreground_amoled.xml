@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- GhostSpot AMOLED launcher icon. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#1ED760"
+        android:pathData="M36,52 C36,38 72,38 72,52 L72,70 C70,74 67,71 64,74 C61,77 58,71 54,74 C50,77 47,71 44,74 C41,77 38,71 36,70 Z" />
+    <path
+        android:fillColor="#000000"
+        android:pathData="M47,50m-3.5,0a3.5,3.5 0,1,1 7,0a3.5,3.5 0,1,1 -7,0 M61,50m-3.5,0a3.5,3.5 0,1,1 7,0a3.5,3.5 0,1,1 -7,0" />
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3.8"
+        android:strokeLineCap="round"
+        android:pathData="M31,54 C31,30 77,30 77,54" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M29,48 a3.5,5 0 0,1 4,0 l0,10 a3.5,5 0 0,1 -4,0 z M75,48 a3.5,5 0 0,1 4,0 l0,10 a3.5,5 0 0,1 -4,0 z" />
+</vector>

@@ -269,6 +269,7 @@ object OfflineDownloader {
                 val t = download(r)
                 // Already on the IO scope: the index rewrite stays off the main thread.
                 OfflineStore.add(t)
+                runCatching { PublicStorageExporter.exportTrack(com.music.spotui.di.Graph.app, t) }
                 withContext(Dispatchers.Main) { requests.remove(r.trackId) }
                 // Its lyrics kept with it, for playing offline (looked up behind, one song at a time).
                 if (com.music.spotui.data.preferences.LyricsOfflinePref.on) com.music.spotui.data.api.LyricsApi.keepForOffline(

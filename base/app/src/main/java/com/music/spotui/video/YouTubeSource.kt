@@ -33,6 +33,7 @@ object YouTubeSource {
     private const val UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:128.0) Gecko/20100101 Firefox/128.0"
 
     val http: OkHttpClient = OkHttpClient.Builder()
+        .dns(app.myspoti.host.android.ResilientDns)
         .addInterceptor(com.music.spotui.data.DataSaver.interceptor)
         .connectTimeout(15, TimeUnit.SECONDS)
         .readTimeout(30, TimeUnit.SECONDS)

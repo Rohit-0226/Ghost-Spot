@@ -41,6 +41,7 @@ object MyspotiRuntime {
      */
     val apiHttp: okhttp3.OkHttpClient by lazy {
         okhttp3.OkHttpClient.Builder()
+            .dns(ResilientDns)
             .connectTimeout(10, java.util.concurrent.TimeUnit.SECONDS)
             .readTimeout(15, java.util.concurrent.TimeUnit.SECONDS)
             .pingInterval(20, java.util.concurrent.TimeUnit.SECONDS)

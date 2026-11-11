@@ -1,10 +1,28 @@
-# Myspoti
+# GhostSpot
 
 [![Latest release](https://img.shields.io/github/v/release/kota-zo/myspoti?label=release)](https://github.com/kota-zo/myspoti/releases/latest)
 [![License: GPL-3.0](https://img.shields.io/github/license/kota-zo/myspoti)](LICENSE)
 [![Discord](https://img.shields.io/badge/Discord-join-5865F2?logo=discord&logoColor=white)](https://discord.gg/jXKnGVFnGS)
 
-**Spotify without ads, on a free account.** Your own Spotify account, playlists and Wrapped, in a native Android app that blocks the ads, with offline downloads through extensions you install.
+**Spotify & YouTube Music without ads, built for pure listening.** Your own Spotify account, playlists, podcasts and Wrapped in a native Android app that blocks ads, with YouTube Music fallback, offline public file exports (`Music/GhostSpot/`), and AdGuard DNS resilience.
+
+## Features
+
+### 🚫 Spotify Ad-Free on a Free Account
+No audio ads, no video ads, no banners, and no breaks between songs. GhostSpot suppresses ad-manager states in Spotify's Web Player engine without tampering with DRM.
+
+### 🌐 AdGuard & Private DNS Resilience
+If you use private DNS services (such as AdGuard DNS or NextDNS) to block system-wide ads, standard Spotify clients often fail due to sinkholed telemetry domains. GhostSpot features a built-in **DNS-over-HTTPS (DoH)** fallback (Cloudflare `1.1.1.1` & Google `8.8.8.8`) scoped directly to audio APIs, ensuring uninterrupted streaming regardless of your network's DNS blocker.
+
+### 📁 Direct Public Storage Downloads (`Music/GhostSpot/`)
+Downloaded tracks are automatically exported into your device's public `Music/GhostSpot/` folder in standard audio format (`.m4a`/`.mp3`) and scanned into Android's MediaStore, making your music immediately playable in Samsung Music, Poweramp, VLC, or any file manager.
+
+### 🎵 Dual-Source Audio (Spotify + YouTube Music Fallback)
+Access the complete Spotify catalog (including full podcast library, shows, and audiobooks). If a song, remix, mashup, or unreleased live recording is missing on Spotify, GhostSpot bridges to YouTube Music via `NewPipeExtractor` to stream and queue it seamlessly.
+
+### ✨ Sleek Native Compose UI & Cloud Builds
+- Unified modern dark UI in Jetpack Compose with synchronized word-by-word lyrics.
+- Automated GitHub Actions cloud workflow: build and install the APK on your phone with **zero disk space required on your PC**.
 
 <p align="center">
   <img src="docs/screenshots/banner.jpg" alt="Myspoti in its two looks: the Immersive home and player, the Classic player and an artist page" width="100%">
