@@ -151,10 +151,6 @@ object DownloadAsk {
 
     /** Runs [start] now with the Settings quality (null), or after the user picked one. */
     fun start(context: android.content.Context, start: (DownloadQuality?) -> Unit) {
-        if (com.music.spotui.data.preferences.isDownloadsEnabled(context) && !com.music.spotui.extensions.Extensions.hasDownloadSource()) {
-            needSource = true
-            return
-        }
         if (getDownloadQuality(context) == DownloadQuality.ASK) pending = { start(it) } else start(null)
     }
 }

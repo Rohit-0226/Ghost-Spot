@@ -90,16 +90,15 @@ import com.music.spotui.ui.navigation.isImmersive
 object Setup {
     private const val KEY = "SetupDone"
     private const val EXTENSIONS_KEY = "SetupExtensionsSeen"
-    /** The permissions step, the sound quality one, the look one or the extensions one (each new step is shown once after the update too). */
-    fun needed(context: Context) = !permissionsDone(context) || !com.music.spotui.data.preferences.isQualityChosen(context) ||
-        !com.music.spotui.data.preferences.LookPref.isChosen(context) || !extensionsSeen(context)
+    /** The permissions step and sound quality step. */
+    fun needed(context: Context) = !permissionsDone(context) || !com.music.spotui.data.preferences.isQualityChosen(context)
     fun permissionsDone(context: Context) = prefs(context).getBoolean(KEY, false)
     fun done(context: Context) = prefs(context).edit().putBoolean(KEY, true).apply()
-    fun extensionsSeen(context: Context) = prefs(context).getBoolean(EXTENSIONS_KEY, false)
+    fun extensionsSeen(context: Context) = true
     fun setExtensionsSeen(context: Context) = prefs(context).edit().putBoolean(EXTENSIONS_KEY, true).apply()
     private fun prefs(context: Context) = context.getSharedPreferences("myspoti_prefs", Context.MODE_PRIVATE)
 
-    /** A page to open once the app shows (the extensions step's "See the extensions"); taken by [App]. */
+    /** A page to open once the app shows; taken by [App]. */
     var openAfter: String? = null
 }
 
@@ -109,17 +108,13 @@ private fun granted(context: Context, permission: String) =
 @Composable
 fun SetupScreen(onDone: () -> Unit) {
     val context = LocalContext.current
-    // How Myspoti works (first setup only), the look, the sound quality, the permissions, then the
-    // extensions (last, so the end of the setup leads straight to their page); each skipped when
-    // done before an update. Every step after the look is drawn in the look chosen there.
+    // How GhostSpot works, the sound quality, the permissions; each skipped when done before.
     val needPerms = remember { !Setup.permissionsDone(context) }
     val needQuality = remember { !com.music.spotui.data.preferences.isQualityChosen(context) }
-    val needLook = remember { !com.music.spotui.data.preferences.LookPref.isChosen(context) }
-    val needExtensions = remember { !Setup.extensionsSeen(context) }
     val order = remember {
         listOfNotNull(
-            STEP_INTRO.takeIf { needPerms }, STEP_LOOK.takeIf { needLook }, STEP_QUALITY.takeIf { needQuality },
-            STEP_PERMISSIONS.takeIf { needPerms }, STEP_EXTENSIONS.takeIf { needExtensions },
+            STEP_INTRO.takeIf { needPerms }, STEP_QUALITY.takeIf { needQuality },
+            STEP_PERMISSIONS.takeIf { needPerms },
         ).ifEmpty { listOf(STEP_PERMISSIONS) }
     }
     var index by remember { mutableIntStateOf(0) }

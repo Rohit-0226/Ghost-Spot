@@ -427,8 +427,27 @@ class Api constructor(
         val music = runCatching { api.search.all(query, limit = 20) }.getOrElse {
             Log.e("Api", "searchEverything failed", it); emit(Response.Error(it.message ?: "error")); return@flow
         }
+        var songsList = music.tracks.items.map(::songOf)
+        if (songsList.isEmpty()) {
+            val ytHits = runCatching {
+                com.music.spotui.video.YouTubeSource.searchVideos(query).take(10).mapIndexed { idx, hit ->
+                    val videoId = com.music.spotui.video.YouTubeSource.videoId(hit.url) ?: idx.toString()
+                    com.music.spotui.data.entity.SongsModel(
+                        id = hit.url.hashCode(),
+                        title = hit.name,
+                        album = "YouTube Music",
+                        singer = hit.uploader,
+                        coverUri = "https://i.ytimg.com/vi/$videoId/hqdefault.jpg",
+                        url = hit.url,
+                        spotifyTrackId = "",
+                        durationMs = (hit.durationSec * 1000).toInt(),
+                    )
+                }
+            }.getOrDefault(emptyList())
+            if (ytHits.isNotEmpty()) songsList = ytHits
+        }
         val base = SearchResults(
-            songs = music.tracks.items.map(::songOf),
+            songs = songsList,
             albums = music.albums.items.map(::albumOf),
             artists = music.artists.items.map(::artistOf),
             playlists = music.playlists.items.map(::playlistEntry),

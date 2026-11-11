@@ -88,9 +88,7 @@ android {
 
     buildTypes {
         debug {
-            // Installs next to the release apps (own data, own sign-in).
-            if (!automixLab) applicationIdSuffix = ".dev"
-            manifestPlaceholders["appLabel"] = if (automixLab) "Myspoti Mix Lab" else "Myspoti dev"
+            manifestPlaceholders["appLabel"] = if (automixLab) "GhostSpot Lab" else "GhostSpot"
             manifestPlaceholders["cliEnabled"] = "true"
         }
         release {
@@ -100,8 +98,7 @@ android {
             // -PoverDev: the optimised build under the dev app's id, to measure the speed of a
             // beta on the test phone without replacing the signed beta installed there.
             if (findProperty("overDev") != null && !automixLab) {
-                applicationIdSuffix = ".dev"
-                manifestPlaceholders["appLabel"] = "Myspoti dev"
+                manifestPlaceholders["appLabel"] = "GhostSpot"
             }
             isMinifyEnabled = true
             isShrinkResources = true

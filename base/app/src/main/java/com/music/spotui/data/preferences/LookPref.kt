@@ -24,21 +24,21 @@ object LookPref {
     private const val KEY_CHOSEN = "look_chosen"
     private const val KEY_OFFERED = "look_offered"
 
-    /** The chosen look, as Compose state: everything reading it redraws when it changes. */
-    var look by mutableStateOf(Look.of(prefs(com.music.spotui.di.Graph.app).getString(KEY, null)))
+    /** The chosen look, as Compose state: permanently locked to Classic Spotify UI */
+    var look by mutableStateOf(Look.CLASSIC)
         private set
 
     fun set(c: Context, value: Look) {
-        look = value
-        prefs(c).edit().putString(KEY, value.name).apply()
+        look = Look.CLASSIC
+        prefs(c).edit().putString(KEY, Look.CLASSIC.name).apply()
     }
 
     /** The look step of the onboarding was seen (new installs and updates alike). */
-    fun isChosen(c: Context): Boolean = prefs(c).getBoolean(KEY_CHOSEN, false)
+    fun isChosen(c: Context): Boolean = true
     fun setChosen(c: Context) = prefs(c).edit().putBoolean(KEY_CHOSEN, true).putBoolean(KEY_OFFERED, true).apply()
 
     /** The new-look popup was shown to an existing user (or the onboarding look step covered it). */
-    fun isOffered(c: Context): Boolean = prefs(c).getBoolean(KEY_OFFERED, false)
+    fun isOffered(c: Context): Boolean = true
     fun setOffered(c: Context) = prefs(c).edit().putBoolean(KEY_OFFERED, true).apply()
     fun clearOffered(c: Context) = prefs(c).edit().remove(KEY_OFFERED).apply()
 

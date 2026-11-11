@@ -11,8 +11,7 @@ import com.music.spotui.ui.immersive.sheets.ImmersiveGlassSheet
 import com.music.spotui.ui.navigation.isImmersive
 
 /**
- * The bottom sheet of the screens shared by both looks: Material's [ModalBottomSheet] on
- * [containerColor] in Classic (exactly as before), a glass sheet in Immersive.
+ * The bottom sheet: Material's [ModalBottomSheet] on [containerColor] in pure Classic Spotify UI.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -22,6 +21,5 @@ fun LookSheet(
     containerColor: Color,
     content: @Composable ColumnScope.() -> Unit,
 ) {
-    if (isImmersive()) ImmersiveGlassSheet(onDismissRequest, sheetState, content)
-    else ModalBottomSheet(onDismissRequest = onDismissRequest, sheetState = sheetState, containerColor = containerColor, content = content)
+    ModalBottomSheet(onDismissRequest = onDismissRequest, sheetState = sheetState, containerColor = containerColor, content = content)
 }

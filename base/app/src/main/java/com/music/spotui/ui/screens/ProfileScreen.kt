@@ -181,15 +181,6 @@ fun ProfileScreen(navController: NavController, userId: String, userName: String
                             .pressable(0.96f) { navController.navigate(com.music.spotui.ui.navigation.Routes.Recap.route) }
                             .padding(horizontal = 20.dp, vertical = 8.dp),
                     )
-                    Spacer(Modifier.height(10.dp))
-                    Text(
-                        stringResource(R.string.extensions_title),
-                        color = AppText, fontSize = 14.sp, fontWeight = FontWeight.Bold,
-                        modifier = Modifier.clip(RoundedCornerShape(50))
-                            .border(1.dp, AppMuted, RoundedCornerShape(50))
-                            .pressable(0.96f) { navController.navigate(com.music.spotui.ui.navigation.Routes.Extensions.route) }
-                            .padding(horizontal = 20.dp, vertical = 8.dp),
-                    )
                 }
                 if (blocked == true) {
                     Spacer(Modifier.height(10.dp))

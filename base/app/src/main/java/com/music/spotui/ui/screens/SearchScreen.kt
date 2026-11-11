@@ -584,19 +584,49 @@ fun SearchSongRow(
                 onLongClick = onLongClick,
                 onClick = {
                     onPlayed()
-                    // Start a radio from the tapped track (queue = this song + Spotify
-                    // recommendations) rather than queuing the whole search list.
-                    searchViewModel.startRadioFromSong(song)
-                    SongPlayer.playSong(song.url, context, songs = listOf(song), alone = true)
-                    searchViewModel.updateSongState(
-                        song.coverUri,
-                        song.title,
-                        song.singer,
-                        true,
-                        song.id,
-                        0,
-                        song.album,
-                    )
+                    if (song.spotifyTrackId.isNotBlank()) {
+                        searchViewModel.startRadioFromSong(song)
+                        SongPlayer.playSong(song.url, context, songs = listOf(song), alone = true)
+                        searchViewModel.updateSongState(
+                            song.coverUri,
+                            song.title,
+                            song.singer,
+                            true,
+                            song.id,
+                            0,
+                            song.album,
+                        )
+                    } else if (song.url.contains("youtube") || song.url.startsWith("http")) {
+                        kotlinx.coroutines.CoroutineScope(kotlinx.coroutines.Dispatchers.IO).launch {
+                            val streamUrl = runCatching {
+                                val info = com.music.spotui.video.YouTubeSource.info(song.url)
+                                info.audioStreams.maxByOrNull { it.averageBitrate }?.content
+                            }.getOrNull()
+                            if (streamUrl != null) {
+                                val localTrack = com.music.spotui.data.local.LocalTrack(
+                                    id = song.id.toLong(),
+                                    uri = android.net.Uri.parse(streamUrl),
+                                    title = song.title,
+                                    artist = song.singer,
+                                    album = song.album,
+                                    durationMs = song.durationMs.toLong(),
+                                    artUri = android.net.Uri.parse(song.coverUri),
+                                )
+                                kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Main) {
+                                    com.music.spotui.di.LocalPlayer.play(listOf(localTrack), 0, context = "YouTube Music")
+                                    searchViewModel.updateSongState(
+                                        song.coverUri,
+                                        song.title,
+                                        song.singer,
+                                        true,
+                                        song.id,
+                                        0,
+                                        song.album,
+                                    )
+                                }
+                            }
+                        }
+                    }
                 },
             ),
     ) {
@@ -621,6 +651,10 @@ fun SearchSongRow(
                 Text(text = song.title, color = currentPlayingIndicatorColor, fontSize = 16.sp, maxLines = 1, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
                 androidx.compose.foundation.layout.Row(verticalAlignment = Alignment.CenterVertically) {
                     if (song.explicit) { com.music.spotui.ui.screens.ExplicitBadge(); androidx.compose.foundation.layout.Spacer(Modifier.width(6.dp)) }
+                    if (song.url.contains("youtube", ignoreCase = true) || song.album.contains("YouTube", ignoreCase = true)) {
+                        YouTubeBadge()
+                        androidx.compose.foundation.layout.Spacer(Modifier.width(6.dp))
+                    }
                     Text(text = stringResource(R.string.assisted_curation_search_song) + " • ${song.singer}", color = AppMuted, fontSize = 13.sp, maxLines = 1, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
                 }
             }
@@ -642,6 +676,34 @@ fun SearchSectionHeader(title: String) {
         fontWeight = FontWeight.Bold,
         modifier = Modifier.padding(16.dp, 18.dp, 16.dp, 4.dp),
     )
+}
+
+/** Sleek, minimalist metadata badge matching Spotify's native styling (10.sp, subtle rounded container). */
+@Composable
+fun YouTubeBadge(modifier: Modifier = Modifier) {
+    Box(
+        contentAlignment = Alignment.Center,
+        modifier = modifier
+            .clip(RoundedCornerShape(2.dp))
+            .background(Color.White.copy(alpha = 0.22f))
+            .padding(horizontal = 4.dp, vertical = 1.dp),
+    ) {
+        Text(
+            "YOUTUBE",
+            color = AppText,
+            fontWeight = FontWeight.Bold,
+            style = androidx.compose.ui.text.TextStyle(
+                fontSize = 9.sp,
+                lineHeight = 10.sp,
+                letterSpacing = 0.5.sp,
+                platformStyle = androidx.compose.ui.text.PlatformTextStyle(includeFontPadding = false),
+                lineHeightStyle = androidx.compose.ui.text.style.LineHeightStyle(
+                    alignment = androidx.compose.ui.text.style.LineHeightStyle.Alignment.Center,
+                    trim = androidx.compose.ui.text.style.LineHeightStyle.Trim.Both,
+                ),
+            ),
+        )
+    }
 }
 
 @OptIn(ExperimentalGlideComposeApi::class)

@@ -7,8 +7,7 @@ import com.music.spotui.ui.immersive.sheets.ImmersiveAlertDialog
 import com.music.spotui.ui.navigation.isImmersive
 
 /**
- * The alert of the screens shared by both looks: Material's [AlertDialog] on [containerColor] in
- * Classic (exactly as before), a glass dialog in Immersive (as [LookSheet] for the sheets).
+ * The alert dialog: Material's [AlertDialog] on [containerColor] in pure Classic Spotify UI.
  */
 @Composable
 fun LookAlertDialog(
@@ -20,8 +19,7 @@ fun LookAlertDialog(
     title: (@Composable () -> Unit)? = null,
     text: (@Composable () -> Unit)? = null,
 ) {
-    if (isImmersive()) ImmersiveAlertDialog(onDismissRequest, confirmButton, dismissButton, icon, title, text)
-    else AlertDialog(
+    AlertDialog(
         onDismissRequest = onDismissRequest,
         confirmButton = confirmButton,
         dismissButton = dismissButton,

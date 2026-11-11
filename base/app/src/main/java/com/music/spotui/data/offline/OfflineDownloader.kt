@@ -414,6 +414,31 @@ object OfflineDownloader {
             com.music.spotui.extensions.Extensions.downloaded(fetched.extensionId, meta.title)
             return fetched
         }
+        // Built-in YouTube Music fallback via NewPipeExtractor
+        val ytAudio = runCatching {
+            withContext(Dispatchers.IO) {
+                val hit = YouTubeSource.findSong(meta.title, meta.artist, meta.durationMs)
+                    ?: YouTubeSource.findAudio(meta.title, meta.artist, meta.durationMs)
+                if (hit != null) {
+                    val info = YouTubeSource.info(hit.url)
+                    val stream = info.audioStreams
+                        .filter { it.format == org.schabi.newpipe.extractor.MediaFormat.M4A || it.format == org.schabi.newpipe.extractor.MediaFormat.WEBMA_OPUS }
+                        .sortedWith(compareBy({ if (it.format == org.schabi.newpipe.extractor.MediaFormat.M4A) 0 else 1 }, { if (it.averageBitrate > 0) -it.averageBitrate else 0 }))
+                        .firstOrNull()
+                    if (stream != null) {
+                        fetchWithProgress(r.trackId, stream.content, out)
+                        if (out.length() >= 10_000) {
+                            val format = if (stream.format == org.schabi.newpipe.extractor.MediaFormat.M4A) "m4a" else "opus"
+                            Fetched("YouTube Music", false, "builtin:ytm", lossy = format)
+                        } else null
+                    } else null
+                } else null
+            }
+        }.getOrNull()
+        if (ytAudio != null) {
+            Log.i(TAG, "${meta.title}: downloaded via built-in YouTube Music fallback")
+            return ytAudio
+        }
         if (seen.isEmpty()) throw Unavailable("no download source has this song")
         fetchError?.let { throw IOException("none of the $tried files from ${seen.joinToString()} could be fetched: ${it.message}", it) }
         throw Unavailable("none of the $tried files from ${seen.joinToString()} could be used")

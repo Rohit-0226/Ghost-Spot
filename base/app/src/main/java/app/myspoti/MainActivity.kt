@@ -157,36 +157,11 @@ class MainActivity : AppCompatActivity() {
                                 else -> com.music.spotui.ui.components.LoginHelpButton()
                             }
                         }
-                        // Existing users, once, right after the update: the new look, live.
-                        if (signedIn && !setupNeeded && !showLook && !showingLogin && !inPip && !lookOffered) {
-                            if (com.music.spotui.data.preferences.LookPref.look == com.music.spotui.data.preferences.Look.IMMERSIVE) {
-                                androidx.compose.runtime.LaunchedEffect(Unit) {
-                                    com.music.spotui.data.preferences.LookPref.setOffered(this@MainActivity); lookOffered = true
-                                }
-                            } else {
-                                val close = { look: com.music.spotui.data.preferences.Look ->
-                                    com.music.spotui.data.preferences.LookPref.set(this@MainActivity, look)
-                                    com.music.spotui.data.preferences.LookPref.setOffered(this@MainActivity)
-                                    lookOffered = true
-                                }
-                                val keep = { close(com.music.spotui.data.preferences.Look.CLASSIC) }
-                                androidx.compose.ui.window.Dialog(
-                                    onDismissRequest = keep,
-                                    properties = androidx.compose.ui.window.DialogProperties(usePlatformDefaultWidth = false, decorFitsSystemWindows = false),
-                                ) {
-                                    com.music.spotui.ui.look.LookStep(
-                                        onNext = { close(com.music.spotui.data.preferences.Look.IMMERSIVE) },
-                                        offer = com.music.spotui.ui.look.LookOffer(onKeep = keep),
-                                    )
-                                }
-                            }
-                        }
                         // "Ask each time": the download quality question, above every screen.
                         com.music.spotui.ui.components.DownloadAskHost()
-                        // An extension about to change the Spotify account waits for the user's yes.
-                        com.music.spotui.extensions.ExtensionConfirmHost()
-                        // An extension's sign-in page, in a web view of its own.
-                        com.music.spotui.extensions.ExtensionAuthHost()
+                        // Extensions hosts disabled for pure standalone Classic experience
+                        // com.music.spotui.extensions.ExtensionConfirmHost()
+                        // com.music.spotui.extensions.ExtensionAuthHost()
                         // Beta and dev builds only: hold the faint dot to copy the recent logs.
                         if (com.music.spotui.data.api.UpdateChecker.isBeta || app.myspoti.engine.BuildConfig.DEBUG)
                             com.music.spotui.ui.components.BetaLogButton(

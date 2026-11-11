@@ -338,19 +338,6 @@ fun SettingsScreen(navController: NavController) {
                 Text(stringResource(R.string.sources_download_title), color = AppText, fontSize = 16.sp)
                 Text(sourceLineSummary(app.myspoti.extensions.Action.DOWNLOAD_SOURCE).orEmpty(), color = AppMuted, fontSize = 12.sp)
             }
-            else Column(
-                Modifier.fillMaxWidth().clickable { navController.navigate(com.music.spotui.ui.navigation.Routes.Extensions.route) }
-                    .padding(horizontal = 20.dp, vertical = 10.dp),
-            ) {
-                Text(stringResource(R.string.downloads_source_row_title), color = AppText, fontSize = 16.sp)
-                Text(
-                    stringResource(
-                        if (com.music.spotui.extensions.Extensions.hasDownloadSource()) R.string.downloads_source_row_on
-                        else R.string.downloads_source_row_off,
-                    ),
-                    color = AppMuted, fontSize = 12.sp,
-                )
-            }
             // A downloaded song's lyrics kept with it, shown without a connection.
             OptionRow(
                 label = stringResource(R.string.settings_download_lyrics_title),
@@ -436,7 +423,6 @@ fun SettingsScreen(navController: NavController) {
                 checked = com.music.spotui.data.preferences.AppFontPref.system,
                 onChecked = { com.music.spotui.data.preferences.AppFontPref.set(ctx, it) },
             )
-            LookRow()
             OrientationRow()
             LanguageRow()
             }
@@ -449,15 +435,6 @@ fun SettingsScreen(navController: NavController) {
                 SourcesBlock(app.myspoti.extensions.Action.AUDIO_SOURCE, navController)
             if (com.music.spotui.extensions.Extensions.sources(app.myspoti.extensions.Action.DOWNLOAD_SOURCE).isNotEmpty())
                 SourcesBlock(app.myspoti.extensions.Action.DOWNLOAD_SOURCE, navController)
-            ExtensionSettingsRows(navController)
-            // Third-party extensions: lyrics, a song's audio, scripts reacting to the music.
-            Column(
-                Modifier.fillMaxWidth().clickable { navController.navigate(com.music.spotui.ui.navigation.Routes.Extensions.route) }
-                    .padding(horizontal = 20.dp, vertical = 10.dp),
-            ) {
-                Text(stringResource(R.string.extensions_title), color = AppText, fontSize = 16.sp)
-                Text(stringResource(R.string.extensions_row_detail), color = AppMuted, fontSize = 12.sp)
-            }
             }
             if (tab == 5) {
             Section(R.string.settings_section_app)
