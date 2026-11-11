@@ -9,7 +9,7 @@ on:
   pull_request:
 
 permissions:
-  contents: read
+  contents: write
 
 defaults:
   run:
@@ -19,18 +19,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v4
 
-      - uses: actions/setup-java@v6
+      - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: "21"
 
-      - uses: android-actions/setup-android@v4
+      - uses: android-actions/setup-android@v3
         with:
           packages: "platforms;android-37.0 build-tools;36.0.0"
 
-      - uses: gradle/actions/setup-gradle@v6
+      - uses: gradle/actions/setup-gradle@v4
 
       # Unit tests of every module that has them: the Android modules (app, host-android) run
       # testDebugUnitTest, the JVM modules (extensions, api-spotify, host-cdp) run test.
@@ -40,7 +40,7 @@ jobs:
 
       - name: Test reports
         if: ${{ failure() }}
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
           name: test-reports
           path: |
@@ -53,10 +53,10 @@ jobs:
         if: ${{ !startsWith(github.ref, 'refs/tags/v') }}
         run: ./gradlew assembleDebug
 
-      - uses: actions/upload-artifact@v7
+      - uses: actions/upload-artifact@v4
         if: ${{ !startsWith(github.ref, 'refs/tags/v') }}
         with:
-          name: myspoti-debug
+          name: GhostSpot-APK
           path: base/app/build/outputs/apk/debug/*.apk
           retention-days: 14
 
@@ -67,20 +67,20 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0  # the previous tag, for a beta's notes
 
-      - uses: actions/setup-java@v6
+      - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: "21"
 
-      - uses: android-actions/setup-android@v4
+      - uses: android-actions/setup-android@v3
         with:
           packages: "platforms;android-37.0 build-tools;36.0.0"
 
-      - uses: gradle/actions/setup-gradle@v6
+      - uses: gradle/actions/setup-gradle@v4
 
       # Strict semver tags, so Obtainium and the app compare versions right: "v2.2.1-beta.1" (a beta
       # of the next version, above the last stable) or "v2.2.1". See tools/check_tag.py.

@@ -3,7 +3,6 @@ build/
 .gradle/
 .kotlin/
 *.apk
-!GhostSpot-v2.4.0.apk
 *.zip
 *.log
 dist/

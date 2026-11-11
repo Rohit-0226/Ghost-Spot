@@ -5,17 +5,17 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Rohit-0226/Ghost-Spot/raw/main/GhostSpot-v2.4.0.apk">
+  <a href="https://github.com/Rohit-0226/Ghost-Spot/releases">
     <img src="https://img.shields.io/badge/DOWNLOAD_GHOSTSPOT_APK-v2.4.0-1ED760?style=for-the-badge&amp;logo=android&amp;logoColor=white" height="52">
   </a>
 </p>
 
-### 📲 [👉 Direct Download: GhostSpot-v2.4.0.apk](https://github.com/Rohit-0226/Ghost-Spot/raw/main/GhostSpot-v2.4.0.apk)
+### 📲 [👉 Click Here to Download GhostSpot APK from Releases](https://github.com/Rohit-0226/Ghost-Spot/releases)
+*(Also available under [GitHub Actions Artifacts](https://github.com/Rohit-0226/Ghost-Spot/actions))*
 
 > ### 📱 Mobile Installation Guide (Pehle Yahan Se Install Karo):
-> 1. Upar diye gaye **[Download GhostSpot APK](https://github.com/Rohit-0226/Ghost-Spot/raw/main/GhostSpot-v2.4.0.apk)** link par tap karo.
-> 2. Download complete hone ke baad `GhostSpot-v2.4.0.apk` par tap karo.
-> 3. Browser setting me **"Allow from this source"** enable karo aur **Install** tap karo!
+> - **Separate Independent App**: Package name is `app.ghostspot`. It installs separately from MySpoti or Spotify.
+> - **Download**: Tap **[Releases](https://github.com/Rohit-0226/Ghost-Spot/releases)**, download `GhostSpot-v2.4.0.apk`, and tap **Install**!
 
 ---
 [![License: GPL-3.0](https://img.shields.io/github/license/kota-zo/myspoti)](LICENSE)

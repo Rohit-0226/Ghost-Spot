@@ -39,7 +39,7 @@ android {
     // "-beta" as in UpdateChecker.isBeta, one predicate for the app id, the label and the log stripping.
     val beta = findProperty("appVersionName") == null || version.contains("-beta")
     defaultConfig {
-        applicationId = if (automixLab) "app.myspoti.automixlab" else if (beta) "app.myspoti" else "app.myspoti.stable"
+        applicationId = if (automixLab) "app.ghostspot.lab" else if (beta) "app.ghostspot.beta" else "app.ghostspot"
         manifestPlaceholders["appLabel"] = if (automixLab) "GhostSpot Lab" else if (beta) "GhostSpot Beta" else "GhostSpot"
         // The adb command line (com.music.spotui.cli): betas and debug builds only.
         manifestPlaceholders["cliEnabled"] = beta.toString()
