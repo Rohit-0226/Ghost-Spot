@@ -50,7 +50,7 @@ jobs:
           ls -lh ../GhostSpot.apk GhostSpot.apk
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: GhostSpot-APK
           path: GhostSpot.apk
@@ -85,7 +85,7 @@ jobs:
 
       - name: Test reports
         if: ${{ failure() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: test-reports
           path: |
