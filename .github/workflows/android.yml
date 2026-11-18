@@ -57,7 +57,7 @@ jobs:
           retention-days: 14
 
       - name: Publish to GitHub Releases
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         if: github.ref == 'refs/heads/main'
         with:
           tag_name: v2.4.0
